@@ -21,11 +21,15 @@ const errorMessage = () => {
     `
 }
 
-// setTimeout function called . auto hide error message after 10 sec 
 
-
-
+// display button get
 window.addEventListener('load', () => {
+    // page load
+    setTimeout(function () {
+        const pageLoad = document.getElementById('page-load');
+        pageLoad.style.display = 'none';
+    }, 3000);
+    // display all country data
     countryLoad('all');
 });
 document.getElementById('all').addEventListener('click', () => {

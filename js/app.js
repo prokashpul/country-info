@@ -4,37 +4,66 @@
 const countryLoad = (countryDataLink) => {
     const url = `https://restcountries.com/v3.1/${countryDataLink}`;
     fetch(url)
-        .then(responce => responce.json())
-        .then(data => dispalyData(data))
+        .then(res => res.json())
+        .then(data => displayData(data))
+        .catch(err => errorMessage(err))
 }
+setTimeout(function () {
+    const errorShow = document.getElementById('error-show');
+    errorShow.innerHTML = ``;
+}, 1000)
+
+// error show
+const errorMessage = () => {
+    const errorShow = document.getElementById('error-show');
+    errorShow.innerHTML = `
+        <h5> Country name is not Found 😒 </h5>
+    `
+}
+
+// setTimeout function called . auto hide error message after 10 sec 
+
+
+
 window.addEventListener('load', () => {
-    countryLoad('all')
-})
+    countryLoad('all');
+});
 document.getElementById('all').addEventListener('click', () => {
     countryLoad('all')
-})
+});
 document.getElementById('asia').addEventListener('click', () => {
     countryLoad('region/asia')
-})
+});
 document.getElementById('africa').addEventListener('click', () => {
     countryLoad('region/Africa')
-})
+});
 document.getElementById('europe').addEventListener('click', () => {
     countryLoad('region/europe')
-})
+});
 document.getElementById('america').addEventListener('click', () => {
     countryLoad('region/america')
-})
+});
 document.getElementById('oceania').addEventListener('click', () => {
     countryLoad('region/oceania')
-})
+});
+document.getElementById('search-btn').addEventListener('click', () => {
+    const input = document.getElementById('input-value');
+    const inputValue = input.value;
+    input.value = '';
+    if (inputValue)
+        countryLoad("name/" + inputValue);
 
+});
 
-const dispalyData = (countys) => {
-    // console.log(countys)
+const displayData = (counteys) => {
+    // console.log(counteys)
     const singleCountry = document.getElementById('country')
     singleCountry.textContent = '';
-    countys.forEach(country => {
+    // error sms hide
+    const errorShow = document.getElementById('error-show');
+    errorShow.textContent = "";
+    // forEach loop use
+    counteys.forEach(country => {
         const div = document.createElement('div');
         div.classList.add('col')
         div.innerHTML = `

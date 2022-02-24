@@ -30,15 +30,8 @@ document.getElementById('oceania').addEventListener('click', () => {
 })
 
 
-// countryLoad('region/asia')
-// countryLoad('region/Africa')
-// countryLoad('region/europe')
-// countryLoad('region/america')
-// countryLoad('region/oceania')
-
-
 const dispalyData = (countys) => {
-    console.log(countys)
+    // console.log(countys)
     const singleCountry = document.getElementById('country')
     singleCountry.textContent = '';
     countys.forEach(country => {
@@ -48,7 +41,7 @@ const dispalyData = (countys) => {
         <div class="card border-0 shadow-lg overflow-hidden h-100">
           <img src="${country.flags.png}" class="border-bottom" alt="..." width="100%" height="150">
           <div class="card-body">
-            <h3 class="card-title">${country.name.common}</h3>
+            <h3 class="card-title">${country.name.common} (${country.flag}) </h3>
             <p><span class="fw-bold"> Continents :</span> ${country.continents} </p>
             <p><span class="fw-bold"> Capital :</span> ${country.capital} </p>
             <p><span class="fw-bold"> Region :</span> ${country.subregion} </p>

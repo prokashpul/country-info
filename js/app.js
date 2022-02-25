@@ -20,7 +20,7 @@ const countryLoad = (countryDataLink) => {
 const errorMessage = () => {
     const errorShow = document.getElementById('error-show');
     errorShow.innerHTML = `
-        <p> Country name is not Found 😒 </p>
+        <div> Country name is not Found 😒 </div>
     `
 }
 
@@ -78,13 +78,21 @@ const displayData = (counteys) => {
         div.classList.add('col')
         div.innerHTML = `
         <div class="card border-0 shadow-lg overflow-hidden h-100" onclick="singleCountry('${country.name.common}')">
-          <img src="${country.flags.png}" class="border-bottom" alt="..." width="100%" height="150">
+        <div class="row ms-2 mt-3">
+        <div class="col-4">
+        <img src="${country.flags.png}" class="border-bottom" alt="..." width="100%" >
+        </div>
+        <div class="col-8">
+        <h4 class="card-title">${country.name.common} (${country.flag}) </h4>
+        </div>
+        </div>
+          
           <div class="card-body">
-            <h3 class="card-title">${country.name.common} (${country.flag}) </h3>
-            <p><span class="fw-bold"> Continents :</span> ${country.continents} </p>
-            <p><span class="fw-bold"> Capital :</span> ${country.capital} </p>
-            <p><span class="fw-bold"> Region :</span> ${country.subregion} </p>
-            <p><span class="fw-bold"> Population :</span> ${country.population} </p>
+            
+            <div><span class="fw-bold"> Continents :</span> ${country.continents} </div>
+            <div><span class="fw-bold"> Capital :</span> ${country.capital} </div>
+            <div><span class="fw-bold"> Region :</span> ${country.subregion} </div>
+            <div><span class="fw-bold"> Population :</span> ${country.population} </div>
           </div>
         </div>
       
@@ -107,29 +115,31 @@ const singleCountryDisplay = (singleCountry) => {
     const singleCountryView = document.getElementById('single-country');
     singleCountryView.style.visibility = "visible";
     singleCountryView.innerHTML = `
-        <div class="card">
-          <div class="d-flex justify-content-end m-2"><button type="button" class="btn-close"
+        <div class="card text-light"  data-bs-spy="scroll" data-bs-offset="0" tabindex="0">
+          <div class="d-flex justify-content-between m-2">
+          <a href="${singleCountry[0].maps.openStreetMaps}" class=" btn btn-info text-light fw-bold">Map</a>
+          <button type="button" class="btn-close"
             aria-label="Close" onclick="closeButton()"></button></div>
             <div class="row g-0">
             <div class="col-md-6 bg-info">
-                <img src="${singleCountry[0].flags.png}" class="img-fluid rounded-start h-100" alt="...">
+                <img src="${singleCountry[0].flags.png}" class="img-fluid rounded-start h-100 w-100" alt="...">
                 </div>
                     <div class="col-md-3 bg-info">
                      <div class="card-body">
                           <h4 class="card-title"><span class="fw-bold text-danger">Country:</span> ${singleCountry[0].name.common} (${singleCountry[0].flag})</h4>
-                          <p class="card-text"><span class="fw-bold text-danger"> Capital: </span>${singleCountry[0].capital}</p>
-                          <p class="card-text"><span class="fw-bold text-danger"> Currencies: </span>${currencies()}</p>
-                          <p class="card-text"><span class="fw-bold text-danger"> Language: </span>${languages()}</p>
+                          <div class="card-text"><span class="fw-bold text-danger"> Capital: </span>${singleCountry[0].capital}</div>
+                          <div class="card-text"><span class="fw-bold text-danger"> Currencies: </span>${currencies()}</div>
+                          <div class="card-text"><span class="fw-bold text-danger"> Language: </span>${languages()}</div>
                           
-                          <p class="card-text"><span class="fw-bold text-danger"> Area: </span>${singleCountry[0].area} KM<sup>2</sup></p>
-                          <p class="card-text"><span class="fw-bold text-danger"> Population: </span>${singleCountry[0].population}</p>
+                          <div class="card-text"><span class="fw-bold text-danger"> Area: </span>${singleCountry[0].area} KM<sup>2</sup></div>
+                          <div class="card-text"><span class="fw-bold text-danger"> Population: </span>${singleCountry[0].population}</div>
                        </div>
                      </div>
                     <div class="col-md-3 bg-info">
                      <div class="card-body">
-                     <p class="card-text"><span class="fw-bold text-danger"> Region: </span>${singleCountry[0].region}</p>
-                          <p class="card-text"><span class="fw-bold text-danger"> Subregion: </span>${singleCountry[0].subregion}</p> 
-                        <p class="card-text"></p>
+                     <div class="card-text"><span class="fw-bold text-danger"> Region: </span>${singleCountry[0].region}</div>
+                          <div class="card-text"><span class="fw-bold text-danger"> Subregion: </span>${singleCountry[0].subregion}</div> 
+                        <div class="card-text"></div>
                        </div>
                      </div>
                 </div>

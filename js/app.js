@@ -20,7 +20,7 @@ const countryLoad = (countryDataLink) => {
 const errorMessage = () => {
     const errorShow = document.getElementById('error-show');
     errorShow.innerHTML = `
-        <div> Country name is not Found 😒 </div>
+        <div> Country is not Found 😒 </div>
     `
 }
 
@@ -77,7 +77,7 @@ const displayData = (counteys) => {
         const div = document.createElement('div');
         div.classList.add('col')
         div.innerHTML = `
-        <div class="card border-0 shadow-lg overflow-hidden h-100" onclick="singleCountry('${country.name.common}')">
+        <div class="card border-0 shadow-lg overflow-hidden" onclick="singleCountry('${country.name.common}')">
         <div class="row ms-2 mt-3">
         <div class="col-4">
         <img src="${country.flags.png}" class="border-bottom" alt="..." width="100%" >
@@ -115,7 +115,7 @@ const singleCountryDisplay = (singleCountry) => {
     const singleCountryView = document.getElementById('single-country');
     singleCountryView.style.visibility = "visible";
     singleCountryView.innerHTML = `
-        <div class="card text-light"  data-bs-spy="scroll" data-bs-offset="0" tabindex="0">
+        <div class="card text-light">
           <div class="d-flex justify-content-between m-2">
           <a href="${singleCountry[0].maps.openStreetMaps}" class=" btn btn-info text-light fw-bold">Map</a>
           <button type="button" class="btn-close"

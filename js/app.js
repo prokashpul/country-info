@@ -93,6 +93,7 @@ const displayData = (counteys) => {
             <div><span class="fw-bold"> Capital :</span> ${country.capital} </div>
             <div><span class="fw-bold"> Region :</span> ${country.subregion} </div>
             <div><span class="fw-bold"> Population :</span> ${country.population} </div>
+            <div class="btn btn-info btn-sm mt-2 text-light" onclick="singleCountry('${country.name.common}')">About More</div>
           </div>
         </div>
       

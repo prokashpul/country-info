@@ -77,7 +77,7 @@ const displayData = (counteys) => {
         const div = document.createElement('div');
         div.classList.add('col')
         div.innerHTML = `
-        <div class="card border-0 shadow-lg overflow-hidden" onclick="singleCountry('${country.name.common}')">
+        <div class="card border-0 shadow-lg overflow-hidden h-100" onclick="singleCountry('${country.name.common}')">
         <div class="row ms-2 mt-3">
         <div class="col-4">
         <img src="${country.flags.png}" class="border-bottom" alt="..." width="100%" >
@@ -122,7 +122,7 @@ const singleCountryDisplay = (singleCountry) => {
             aria-label="Close" onclick="closeButton()"></button></div>
             <div class="row g-0">
             <div class="col-md-6 bg-info">
-                <img src="${singleCountry[0].flags.png}" class="img-fluid rounded-start h-100 w-100" alt="...">
+                <img src="${singleCountry[0].flags.png}" class="img-fluid rounded-start  w-100" alt="...">
                 </div>
                     <div class="col-md-3 bg-info">
                      <div class="card-body">

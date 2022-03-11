@@ -63,7 +63,17 @@ document.getElementById('search-btn').addEventListener('click', () => {
         countryLoad("name/" + inputValue);
 
 });
-
+// enter key press search
+const enterKey = () => {
+    const inputSearch = document.getElementById('input-value');
+    const searchBtn = document.getElementById('search-btn');
+    inputSearch.addEventListener('keypress', (event) => {
+        if (event.key === "Enter") {
+            searchBtn.click();
+        }
+    })
+}
+enterKey()
 const displayData = (counteys) => {
     // console.log(counteys)
     const singleCountry = document.getElementById('country')
